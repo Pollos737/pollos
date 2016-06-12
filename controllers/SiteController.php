@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\SignUpForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+//use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -74,15 +75,15 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionSignUp()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
+        $model = new SignUpForm();
+        if($model->load(Yii::$app->request->post())) {
+            Yii::$app->session->setFlash('signUpFormSubmitted');
             return $this->refresh();
         }
-        return $this->render('contact', [
+
+        return $this->render('signup', [
             'model' => $model,
         ]);
     }
@@ -91,9 +92,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    
-    public function actionSignUp()
-    {
-        
-    }
+
 }

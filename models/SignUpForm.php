@@ -8,12 +8,11 @@ use yii\base\Model;
 /**
  * ContactForm is the model behind the contact form.
  */
-class ContactForm extends Model
+class SignUpForm extends Model
 {
-    public $name;
+    public $first_name;
+    public $last_name;
     public $email;
-    public $subject;
-    public $body;
     public $verifyCode;
 
 
@@ -23,12 +22,13 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
-            // email has to be a valid email address
-            ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+//            // name, email, subject and body are required
+//            [['name', 'email', 'subject', 'body'], 'required'],
+//            // email has to be a valid email address
+//            ['email', 'email'],
+//            // verifyCode needs to be entered correctly
+//            ['verifyCode', 'captcha'],
+            [['first_name'], 'required']
         ];
     }
 
@@ -38,6 +38,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
+            'first_name' => 'First Name',
             'verifyCode' => 'Verification Code',
         ];
     }

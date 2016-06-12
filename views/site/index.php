@@ -40,6 +40,6 @@ $this->title = 'Pollos Social Media Site';
 
     <?php ActiveForm::end(); ?>
     <div>
-        <?=Html::a('Create Account' , ['contact']) ?>
+        <?=Html::a('Create Account' , ['sign-up']) ?>
     </div>
 </div>
