@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\SignUpForm;
 use app\models\User;
 use Yii;
+use yii\base\UserException;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -90,7 +91,12 @@ class SiteController extends Controller
         $model = new User();
 
         if(Yii::$app->request->isPost){
-            $model->create(Yii::$app->request->post());
+            $success = $model->create(Yii::$app->request->post());
+            if($success){
+                $this->redirect('employee-profile');
+            } else {
+                throw new UserException;
+            }
         }
 
         return $this->render('signup', [
@@ -101,6 +107,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionEmployeeProfile()
+    {
+        return $this->render('employeeprofile');
     }
 
 }

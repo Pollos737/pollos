@@ -62,7 +62,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if($this->load($data)){
           //  $this->first_name = $data['first_name'];
-            $this->save();
+            if($this->save()){
+                return true;
+            }
         }
     }
 
