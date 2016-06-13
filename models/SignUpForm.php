@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\User;
 use Yii;
 use yii\base\Model;
 
@@ -28,7 +29,8 @@ class SignUpForm extends Model
 //            ['email', 'email'],
 //            // verifyCode needs to be entered correctly
 //            ['verifyCode', 'captcha'],
-            [['first_name'], 'required']
+            //[['first_name', 'last_name', 'email'], 'required'],
+            //[['email'],'email'],
         ];
     }
 
@@ -62,4 +64,5 @@ class SignUpForm extends Model
         }
         return false;
     }
+    
 }

@@ -17,7 +17,7 @@ $this->title = 'Sign Up';
     <?php if (Yii::$app->session->hasFlash('signUpFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            Thank you for contacting us. We asdsadwill respond to you as soon as possible.
+            Thank you for contacting us. We will respond to you as soon as possible.
         </div>
 
         <p>
@@ -35,7 +35,7 @@ $this->title = 'Sign Up';
 
         <p>
             If you have business inquiries or other questions, please fill out the following form to contact us.
-            Thank you.sadasdad
+            Thank you.
         </p>
 
         <div class="row">
